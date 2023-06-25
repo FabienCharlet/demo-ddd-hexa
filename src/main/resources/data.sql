@@ -1,0 +1,1 @@
+INSERT INTO Pneu(id, version, marque, modele, taille, prix) VALUES(random_uuid(), 0, 'Michelon', 'Energy Summer', '205x55x16R', 80);
