@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.tyreservice.application.PneuRepository;
+import com.example.tyreservice.application.repositories.PneuRepository;
 import com.example.tyreservice.domain.Pneu;
 
 @RestController

@@ -8,6 +8,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.example.tyreservice.application.repositories.FactureRepository;
+import com.example.tyreservice.application.repositories.PneuRepository;
 import com.example.tyreservice.domain.Facture;
 import com.example.tyreservice.domain.Pneu;
 import com.example.tyreservice.domain.Vehicule;

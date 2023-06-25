@@ -3,7 +3,7 @@ package com.example.tyreservice.infrastructure.db;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
-import com.example.tyreservice.application.FactureRepository;
+import com.example.tyreservice.application.repositories.FactureRepository;
 import com.example.tyreservice.domain.Facture;
 import com.example.tyreservice.infrastructure.db.jpa.FactureJpaRepository;
 import com.example.tyreservice.infrastructure.db.jpa.entities.FactureDbEntity;

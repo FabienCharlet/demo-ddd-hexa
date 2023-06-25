@@ -10,7 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.config.Configuration.AccessLevel;
 import org.springframework.stereotype.Component;
 
-import com.example.tyreservice.application.PneuRepository;
+import com.example.tyreservice.application.repositories.PneuRepository;
 import com.example.tyreservice.domain.Pneu;
 import com.example.tyreservice.infrastructure.db.jpa.PneuJpaRepository;
 import com.example.tyreservice.infrastructure.db.jpa.entities.PneuDbEntity;

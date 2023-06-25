@@ -1,4 +1,4 @@
-package com.example.tyreservice.application;
+package com.example.tyreservice.application.repositories;
 
 import com.example.tyreservice.domain.Facture;
 

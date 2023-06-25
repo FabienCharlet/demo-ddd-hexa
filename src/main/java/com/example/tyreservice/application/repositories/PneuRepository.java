@@ -1,4 +1,4 @@
-package com.example.tyreservice.application;
+package com.example.tyreservice.application.repositories;
 
 import java.util.Set;
 import java.util.UUID;
