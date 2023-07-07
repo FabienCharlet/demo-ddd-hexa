@@ -15,9 +15,9 @@ public class BankRestAdapter implements BankRepository {
 	public void debiter(final String carteBleue, final int montant) {
 
 		// For the simplicity of this tutorial, we don't implement a real bank ;)
-		// But you coiuld implement a REST call here
+		// But you could implement a REST call here
 
-		LOGGER.info("Bank accepted payment");
+		LOGGER.info("Bank accepted payment of {} euros", montant);
 	}
 
 
