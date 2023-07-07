@@ -50,6 +50,7 @@ public class PneuDbRepository implements PneuRepository {
 						.map(dbEntity -> mapFrom(dbEntity)).collect(Collectors.toSet());
 	}
 
+	@SuppressWarnings("unused")
 	private Set<PneuDbEntity> mapToDbEntities(final Iterable<Pneu> pneusFromDomain) {
 
 		return StreamSupport.stream(pneusFromDomain.spliterator(), false)
