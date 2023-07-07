@@ -9,7 +9,17 @@ import lombok.Value;
 
 @Value
 @Builder(toBuilder = true)
-public class Vehicule {
+public class Vehicule implements DomainEntity {
+
+	public static Vehicule nouveau(
+			final String marque,
+			final String modele,
+			final int anneeSortie,
+			final String immatriculation,
+			final Client proprietaire) {
+
+		return new Vehicule(UUID.randomUUID(), 0, marque, modele, anneeSortie, immatriculation, proprietaire);
+	}
 
 	private final UUID id;
 	private final int version;
@@ -22,7 +32,7 @@ public class Vehicule {
 
 	private final Client proprietaire;
 
-	public Vehicule(
+	private Vehicule(
 			final UUID id,
 			final int version,
 			final String marque,

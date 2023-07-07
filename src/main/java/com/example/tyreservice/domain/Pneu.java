@@ -10,7 +10,7 @@ import lombok.Value;
 
 @Value
 @Builder(toBuilder = true, access = AccessLevel.PRIVATE)
-public class Pneu {
+public class Pneu implements DomainEntity {
 
 	public static Pneu nouvelleReference(
 			final String marque,

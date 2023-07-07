@@ -12,7 +12,7 @@ import lombok.Value;
 
 @Value
 @Builder(toBuilder = true)
-public class Facture {
+public class Facture implements DomainEntity {
 
 	public static Facture emettre(
 			final Vehicule vehicule,
@@ -69,7 +69,7 @@ public class Facture {
 		Validate.areEquals(prixByPneuIds.keySet(), quantiteAcheteeByPneuIds.keySet());
 
 		this.prixMontageUnitaire = Validate.strictlyPositive(montageUnitaire);
-		this.avantageCommercial = Validate.strictlyPositive(avantageCommercial);
+		this.avantageCommercial = avantageCommercial;
 		this.dateEmission = Validate.notNull(dateEmission);
 		this.datePaiement = datePaiement;
 
