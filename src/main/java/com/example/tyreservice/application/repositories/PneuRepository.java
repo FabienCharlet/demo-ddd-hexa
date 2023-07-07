@@ -10,4 +10,6 @@ public interface PneuRepository {
 	Set<Pneu> findAll();
 
 	Set<Pneu> findByIds(Set<UUID> ids);
+
+	Pneu save(Pneu pneu);
 }

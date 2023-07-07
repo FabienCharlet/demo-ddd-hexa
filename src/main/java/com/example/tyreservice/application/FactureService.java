@@ -8,13 +8,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.example.tyreservice.application.repositories.BankRepository;
 import com.example.tyreservice.application.repositories.FactureRepository;
 import com.example.tyreservice.application.repositories.PneuRepository;
 import com.example.tyreservice.domain.Facture;
 import com.example.tyreservice.domain.Pneu;
 import com.example.tyreservice.domain.Vehicule;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class FactureService {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(FactureService.class);
@@ -23,12 +27,7 @@ public class FactureService {
 
 	private final PneuRepository pneuRepository;
 	private final FactureRepository factureRepository;
-
-	public FactureService(final PneuRepository pneuRepository, final FactureRepository factureRepository) {
-		super();
-		this.pneuRepository = pneuRepository;
-		this.factureRepository = factureRepository;
-	}
+	private final BankRepository bankRepository;
 
 	public Facture generer(
 			final Vehicule vehicule,
@@ -46,6 +45,10 @@ public class FactureService {
 	}
 
 	public Facture payer(final Facture facture, final ZonedDateTime datePaiement) {
+
+		final int montant = facture.getTotal();
+
+		bankRepository.debiter(facture.getVehicule().getProprietaire().getCarteBleue(), montant);
 
 		final Facture res =  factureRepository.save(facture.payee(datePaiement));
 

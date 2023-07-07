@@ -50,6 +50,18 @@ public class PneuDbRepository implements PneuRepository {
 						.map(dbEntity -> mapFrom(dbEntity)).collect(Collectors.toSet());
 	}
 
+	private Set<PneuDbEntity> mapToDbEntities(final Iterable<Pneu> pneusFromDomain) {
+
+		return StreamSupport.stream(pneusFromDomain.spliterator(), false)
+						.map(domainEntity -> mapFrom(domainEntity)).collect(Collectors.toSet());
+	}
+
+	private PneuDbEntity mapFrom(final Pneu domainEntity) {
+
+		return mapper.map(domainEntity, PneuDbEntity.class);
+
+	}
+
 	private Pneu mapFrom(final PneuDbEntity dbEntity) {
 
 		try {
@@ -63,11 +75,20 @@ public class PneuDbRepository implements PneuRepository {
 			return (Pneu) buidMethod.invoke(mappedBuilder);
 
 		} catch (final Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 
 			throw new RuntimeException(e);
 		}
+	}
+
+
+	@Override
+	public Pneu save(final Pneu pneu) {
+
+		final PneuDbEntity dbEntity = mapFrom(pneu);
+
+		final PneuDbEntity savedEntity = jpaRepository.save(dbEntity);
+
+		return mapFrom(savedEntity);
 	}
 
 }

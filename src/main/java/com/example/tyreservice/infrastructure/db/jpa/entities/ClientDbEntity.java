@@ -24,6 +24,8 @@ public class ClientDbEntity {
 
 	private final LocalDate dateNaissance;
 
+	private final String carteBleue;
+
 
 
 }
