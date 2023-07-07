@@ -35,7 +35,8 @@ public class FactureService {
 			final Map<UUID, Integer> prixByPneuIds,
 			final int avantageCommercial) {
 
-		final Facture facture = Facture.emettre(vehicule, quantiteAcheteeByPneuIds, prixByPneuIds, getPrixUnitaireMontage(), avantageCommercial);
+		final Facture facture = Facture.emettre(vehicule, quantiteAcheteeByPneuIds,
+				prixByPneuIds, getPrixUnitaireMontage(), avantageCommercial);
 
 		final Facture res = factureRepository.save(facture);
 
